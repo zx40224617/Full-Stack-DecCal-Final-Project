@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Bill</title>
+</head>
+<body>
+    <script>
+        alert("Welcome to the Bill Section! Enter the total as a number and the split as percentages (eg: 0.7, 0.3, etc). Then press calculate!")
+    </script>
+
+    <div class="all">
+        <div class="items">
+            <h2>Items Recap</h2>
+        </div>
+
+        <div class="total">
+            <h2>Calculate Split</h2>
+            <label for="total">Enter Total:</label>
+            <input type="number" id="total" placeholder="Enter Total">
+            <p></p>
+
+            <label for="s1">Split 1:</label>
+            <input type="number" id="s1" placeholder="Enter Split 1">
+            <p></p>
+
+            <label for="s2">Split 2:</label>
+            <input type="number" id="s2" placeholder="Enter Split 2">
+            <p></p>
+
+            <button onclick="calculate()">Calculate</button>
+        </div>
+
+        <div class="return">
+            <h2>Calculated Bill</h2>
+            <p id="ts1"></p>
+            <p id="ts2"></p>
+        </div>
+
+        <script>
+            function calculate() {
+              var total = parseFloat(document.getElementById('total').value);
+              var s1 = parseFloat(document.getElementById('s1').value);
+              var s2 = parseFloat(document.getElementById('s2').value);
+        
+              if (isNaN(total) || isNaN(s1) || isNaN(s2)) {
+                alert('Please enter valid numbers.');
+                return;
+              }
+        
+              var ts1 = s1 * total;
+              var ts2 = s2 * total;
+        
+              document.getElementById('ts1').innerText = `Split 1: ${ts1.toFixed(2)}`;
+              document.getElementById('ts2').innerText = `Split 2: ${ts2.toFixed(2)}`;
+            }
+          </script>
+
+    </div>
+</body>
+</html>
